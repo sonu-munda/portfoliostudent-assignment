@@ -5,4 +5,5 @@ class AppColors {
   static const Color text = Color(0xff303030);
   static const Color textLight = Color(0xff9E95A2);
   static const Color inactive = Color(0xffD6D1D5);
+  static const Color divider = Color(0xffE0E0E0);
 }

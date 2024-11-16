@@ -50,9 +50,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Portfolio"),
-      ),
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: _pageController,
