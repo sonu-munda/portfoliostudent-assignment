@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portfoliostudent/components/achievement_tab.dart';
 import 'package:portfoliostudent/components/project_tab.dart';
 import 'package:portfoliostudent/components/saved_tab.dart';
 import 'package:portfoliostudent/components/shared_tab.dart';
+import 'package:portfoliostudent/utils/assets.dart';
 import 'package:portfoliostudent/utils/colors.dart';
 
 class PortfolioPage extends StatelessWidget {
@@ -15,6 +17,18 @@ class PortfolioPage extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text("Portfolio"),
+          actions: [
+            IconButton(
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              icon: SvgPicture.asset(AssetIcons.cart),
+            ),
+            IconButton(
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              icon: SvgPicture.asset(AssetIcons.notification),
+            ),
+          ],
           bottom: const TabBar(
             dividerColor: AppColors.divider,
             dividerHeight: 2,
