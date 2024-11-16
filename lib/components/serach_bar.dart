@@ -30,7 +30,7 @@ class AppSearchBar extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: controller,
-              onChanged: (s) {},
+              onChanged: onChanged,
               decoration: const InputDecoration(
                 hintText: 'Enter text',
                 border: InputBorder.none,
@@ -50,7 +50,7 @@ class AppSearchBar extends StatelessWidget {
             ),
             child: IconButton(
                 padding: EdgeInsets.zero,
-                onPressed: () {},
+                onPressed: () => onChanged!(controller.text),
                 icon: SvgPicture.asset(
                   AssetIcons.search,
                   height: 18,

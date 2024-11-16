@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfoliostudent/shared_widgets/widgets.dart';
 import 'package:portfoliostudent/utils/colors.dart';
 
 class ProjectCardItem extends StatelessWidget {
-  const ProjectCardItem({
-    super.key,
-  });
+  const ProjectCardItem({super.key, this.item});
+  final Map? item;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class ProjectCardItem extends StatelessWidget {
             child: AspectRatio(
               aspectRatio: 1,
               child: Image.asset(
-                "assets/images/img-1.jpeg",
+                item!['image'],
                 fit: BoxFit.cover,
               ),
             ),
@@ -41,9 +41,9 @@ class ProjectCardItem extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Kemampuan Merangkum Tulisan",
-                    style: TextStyle(
+                  Text(
+                    item!['title'],
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: AppColors.text,
@@ -55,53 +55,34 @@ class ProjectCardItem extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
-                              "BAHASA SUNDA",
-                              style: TextStyle(
+                            Text(
+                              item!['subtitle'],
+                              style: const TextStyle(
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.text,
                               ),
                             ),
                             RichText(
-                                text: const TextSpan(
-                                    style: TextStyle(
+                                text: TextSpan(
+                                    style: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400,
                                       color: AppColors.textLight,
                                     ),
-                                    text: "Oleh ",
+                                    text: "${item!['name_1']} ",
                                     children: [
                                   TextSpan(
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontWeight: FontWeight.w500,
                                       ),
-                                      text: 'Al-Baiqi Samaan')
+                                      text: item!['name_2'])
                                 ]))
                           ],
                         ),
                       ),
-                      Container(
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            colors: [
-                              AppColors.gradient_1,
-                              AppColors.gradient_2,
-                            ], // Gradient colors
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
-                        child: const Text(
-                          "A",
-                          style: TextStyle(
-                            color: AppColors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
+                      AppButton(
+                        onTap: () {},
                       )
                     ],
                   ),
