@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:portfoliostudent/components/project_card_item.dart';
 import 'package:portfoliostudent/components/serach_bar.dart';
 import 'package:portfoliostudent/data/project_data.dart';
+import 'package:portfoliostudent/shared_widgets/widgets.dart';
+import 'package:portfoliostudent/utils/assets.dart';
+import 'package:portfoliostudent/utils/colors.dart';
 
 class ProjectTab extends StatefulWidget {
   const ProjectTab({super.key});
@@ -22,28 +26,39 @@ class _ProjectTabState extends State<ProjectTab> {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Container(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          children: [
-            AppSearchBar(
-              controller: controller,
-              onChanged: onSearch,
+    return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
+      children: [
+        SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            child: Column(
+              children: [
+                AppSearchBar(
+                  controller: controller,
+                  onChanged: onSearch,
+                ),
+                const SizedBox(height: 16),
+                ListView.builder(
+                  itemCount: showData.length,
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (_, i) => ProjectCardItem(
+                    item: showData[i],
+                  ),
+                )
+              ],
             ),
-            const SizedBox(height: 16),
-            ListView.builder(
-              itemCount: showData.length,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemBuilder: (_, i) => ProjectCardItem(
-                item: showData[i],
-              ),
-            )
-          ],
+          ),
         ),
-      ),
+        Positioned(
+          bottom: 16,
+          child: FilterButton(
+            onTap: () {},
+          ),
+        )
+      ],
     );
   }
 }

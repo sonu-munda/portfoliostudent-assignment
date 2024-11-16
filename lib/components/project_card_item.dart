@@ -82,6 +82,7 @@ class ProjectCardItem extends StatelessWidget {
                         ),
                       ),
                       AppButton(
+                        label: "A",
                         onTap: () {},
                       )
                     ],
