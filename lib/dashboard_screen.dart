@@ -55,42 +55,67 @@ class _DashboardScreenState extends State<DashboardScreen> {
         controller: _pageController,
         children: _tabs,
       ),
-      bottomNavigationBar: BottomAppBar(
-        padding: EdgeInsets.zero,
-        child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            showSelectedLabels: true,
-            showUnselectedLabels: true,
-            selectedItemColor: AppColors.primary,
-            unselectedItemColor: AppColors.inactive,
-            currentIndex: currentBottomNavIndex,
-            onTap: onBottomNavTabTap,
-            items: [
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    AssetIcons.home,
-                    colorFilter: ColorFilter.mode(currentBottomNavIndex == 0 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
-                  ),
-                  label: 'Home'),
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    AssetIcons.portfolio,
-                    colorFilter: ColorFilter.mode(currentBottomNavIndex == 1 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
-                  ),
-                  label: 'Portfolio'),
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    AssetIcons.input,
-                    colorFilter: ColorFilter.mode(currentBottomNavIndex == 2 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
-                  ),
-                  label: 'Input'),
-              BottomNavigationBarItem(
-                  icon: SvgPicture.asset(
-                    AssetIcons.profile,
-                    colorFilter: ColorFilter.mode(currentBottomNavIndex == 3 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
-                  ),
-                  label: 'Profile'),
-            ]),
+      bottomNavigationBar: Stack(
+        alignment: AlignmentDirectional.bottomEnd,
+        children: [
+          Material(
+            elevation: 8, // Add shadow/elevation
+            color: Colors.transparent,
+            child: ClipRRect(
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+              child: BottomNavigationBar(
+                  type: BottomNavigationBarType.fixed,
+                  showSelectedLabels: true,
+                  showUnselectedLabels: true,
+                  selectedItemColor: AppColors.primary,
+                  unselectedItemColor: AppColors.inactive,
+                  currentIndex: currentBottomNavIndex,
+                  onTap: onBottomNavTabTap,
+                  elevation: 8,
+                  items: [
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          AssetIcons.home,
+                          colorFilter: ColorFilter.mode(currentBottomNavIndex == 0 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
+                        ),
+                        label: 'Home'),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          AssetIcons.portfolio,
+                          colorFilter: ColorFilter.mode(currentBottomNavIndex == 1 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
+                        ),
+                        label: 'Portfolio'),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          AssetIcons.input,
+                          colorFilter: ColorFilter.mode(currentBottomNavIndex == 2 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
+                        ),
+                        label: 'Input'),
+                    BottomNavigationBarItem(
+                        icon: SvgPicture.asset(
+                          AssetIcons.profile,
+                          colorFilter: ColorFilter.mode(currentBottomNavIndex == 3 ? AppColors.primary : AppColors.inactive, BlendMode.srcIn),
+                        ),
+                        label: 'Profile'),
+                  ]),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            left: (MediaQuery.of(context).size.width / 4) * currentBottomNavIndex,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 32),
+              child: Container(
+                width: (MediaQuery.of(context).size.width / 4) - 64,
+                height: 3,
+                color: AppColors.primary,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
