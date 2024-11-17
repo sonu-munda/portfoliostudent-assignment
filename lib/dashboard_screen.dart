@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfoliostudent/screens/home_page.dart';
 import 'package:portfoliostudent/screens/input_page.dart';
@@ -27,6 +29,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
   @override
   void initState() {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp, // Lock to portrait for this screen
+    ]);
     super.initState();
   }
 
@@ -75,6 +80,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   currentIndex: currentBottomNavIndex,
                   onTap: onBottomNavTabTap,
                   elevation: 8,
+                  unselectedLabelStyle: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  selectedLabelStyle: TextStyle(
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                  ),
                   items: [
                     BottomNavigationBarItem(
                         icon: SvgPicture.asset(

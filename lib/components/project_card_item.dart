@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:portfoliostudent/shared_widgets/widgets.dart';
 import 'package:portfoliostudent/utils/colors.dart';
 
@@ -9,7 +10,7 @@ class ProjectCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
+      height: 110,
       margin: const EdgeInsets.only(bottom: 16),
       decoration: BoxDecoration(
         border: Border.all(
@@ -43,8 +44,8 @@ class ProjectCardItem extends StatelessWidget {
                 children: [
                   Text(
                     item!['title'],
-                    style: const TextStyle(
-                      fontSize: 18,
+                    style: TextStyle(
+                      fontSize: 14.sp,
                       fontWeight: FontWeight.w500,
                       color: AppColors.text,
                     ),
@@ -57,16 +58,16 @@ class ProjectCardItem extends StatelessWidget {
                           children: [
                             Text(
                               item!['subtitle'],
-                              style: const TextStyle(
-                                fontSize: 14,
+                              style: TextStyle(
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.w500,
                                 color: AppColors.text,
                               ),
                             ),
                             RichText(
                                 text: TextSpan(
-                                    style: const TextStyle(
-                                      fontSize: 14,
+                                    style: TextStyle(
+                                      fontSize: 10.sp,
                                       fontWeight: FontWeight.w400,
                                       color: AppColors.textLight,
                                     ),

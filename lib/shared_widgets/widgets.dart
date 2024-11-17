@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfoliostudent/utils/assets.dart';
 import 'package:portfoliostudent/utils/colors.dart';
@@ -28,9 +29,9 @@ class AppButton extends StatelessWidget {
         child: Center(
           child: Text(
             label!,
-            style: const TextStyle(
+            style: TextStyle(
               color: AppColors.white,
-              fontSize: 20,
+              fontSize: 14.sp,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -60,10 +61,10 @@ class FilterButton extends StatelessWidget {
             const SizedBox(width: 12),
             SvgPicture.asset(AssetIcons.filter),
             const SizedBox(width: 8),
-            const Text(
+            Text(
               'Filter',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
                 color: AppColors.white,
               ),

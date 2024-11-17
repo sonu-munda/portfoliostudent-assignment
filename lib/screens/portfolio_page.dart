@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfoliostudent/components/achievement_tab.dart';
 import 'package:portfoliostudent/components/project_tab.dart';
@@ -29,7 +30,7 @@ class PortfolioPage extends StatelessWidget {
               icon: SvgPicture.asset(AssetIcons.notification),
             ),
           ],
-          bottom: const TabBar(
+          bottom: TabBar(
             dividerColor: AppColors.divider,
             dividerHeight: 2,
             padding: EdgeInsets.zero,
@@ -41,11 +42,15 @@ class PortfolioPage extends StatelessWidget {
             indicatorColor: AppColors.primary,
             labelColor: AppColors.primary,
             unselectedLabelColor: AppColors.text,
+            labelStyle: TextStyle(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w400,
+            ),
             tabs: [
-              Tab(text: 'Project'),
-              Tab(text: 'Saved'),
-              Tab(text: 'Shared'),
-              Tab(text: 'Achievment'),
+              const Tab(text: 'Project'),
+              const Tab(text: 'Saved'),
+              const Tab(text: 'Shared'),
+              const Tab(text: 'Achievment'),
             ],
           ),
         ),

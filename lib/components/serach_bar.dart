@@ -17,7 +17,7 @@ class AppSearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8),
-      height: 56,
+      height: 50,
       decoration: BoxDecoration(
         border: Border.all(
           color: AppColors.divider,
