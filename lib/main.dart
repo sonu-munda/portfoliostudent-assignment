@@ -14,7 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
         useMaterial3: true,
+        fontFamily: 'Roboto',
       ),
+      themeMode: ThemeMode.light,
       routes: {
         '/': (context) => const DashboardScreen(),
       },

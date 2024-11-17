@@ -29,26 +29,28 @@ class _ProjectTabState extends State<ProjectTab> {
     return Stack(
       alignment: AlignmentDirectional.bottomCenter,
       children: [
-        SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              children: [
-                AppSearchBar(
-                  controller: controller,
-                  onChanged: onSearch,
-                ),
-                const SizedBox(height: 16),
-                ListView.builder(
-                  itemCount: showData.length,
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (_, i) => ProjectCardItem(
-                    item: showData[i],
+        Positioned.fill(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: Column(
+                children: [
+                  AppSearchBar(
+                    controller: controller,
+                    onChanged: onSearch,
                   ),
-                )
-              ],
+                  const SizedBox(height: 16),
+                  ListView.builder(
+                    itemCount: showData.length,
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (_, i) => ProjectCardItem(
+                      item: showData[i],
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
