@@ -31,6 +31,7 @@ class AppSearchBar extends StatelessWidget {
             child: TextField(
               controller: controller,
               onChanged: onChanged,
+              style: TextStyle(color: AppColors.text),
               decoration: const InputDecoration(
                 hintText: 'Enter text',
                 border: InputBorder.none,
